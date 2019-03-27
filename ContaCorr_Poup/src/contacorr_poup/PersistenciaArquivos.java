@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conta;
+
+package contacorr_poup;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,24 +12,24 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
- * @author felip_kja6gpn
+ * @author Emanuel
  */
-public class PersistenciaArquivo {
-
-    public void salvarConta(Conta conta) {
-
+public class PersistenciaArquivos {
+    
+    public void salvarConta(Contacorrente conta){
+        
         FileWriter arq;
-        try {
-            arq = new FileWriter("C:\\Users\\20171bsi0146\\Downloads\\contas.txt", true);        
+        try{
+            arq = new FileWriter("D:\\IFES\\5° periodo\\POO1", true);
             PrintWriter gravarArq = new PrintWriter(arq);
-            gravarArq.append( conta.getNomeCliente() + "," + conta.getNumero()
-                + ","+ conta.getAgencia()+","+ conta.getLimite() +"," + conta.getSaldo()+ "\r\n");        
-            arq.close();   
+            gravarArq.append( conta.getNomeCliente() + "," +conta.getNumero() + "," +conta.getAgencia()+ "," +conta.getLimite() +"," +conta.getSaldo()+ "\n\n");
+            arq.close();
         } catch (IOException ex) {
-            Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+            Logger.getLogger(PersistenciaArquivos.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-
+    
 }

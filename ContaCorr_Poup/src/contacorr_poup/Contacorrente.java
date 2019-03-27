@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package contacorr_poup;
-
+//
 /**
  *
  * @author 20171BSI0146
@@ -17,7 +17,7 @@ public class Contacorrente {
     private int agencia;
     private double limite = 0;
     
-    public ContaCorrente(String nomeCliente, int numero, double saldo, int agencia, double limite ){
+    public Contacorrente(String nomeCliente, int numero, double saldo, int agencia, double limite ){
         
         this.nomeCliente = nomeCliente;
         this.numero = numero;
@@ -66,9 +66,8 @@ public class Contacorrente {
         this.limite = limite;
     }
     
-    public void imprimirSaldo(){
+    public void imprimirSaldo_c(){
         System.out.println("Prezado, "+ nomeCliente);
         System.out.println("Atualmente seu saldo é: R$ "+ saldo);
-        
     }
 }

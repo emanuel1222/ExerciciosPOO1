@@ -20,13 +20,21 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        String nomeCliente = JOptionPane.showInputDialog("Informe o seu nome");
+        String nomeC = JOptionPane.showInputDialog("Informe o seu nome");
         int numAgencia = Integer.parseInt(JOptionPane.showInputDialog("Informe a sua agência"));
-        int numConta = JOptionPane.showInputDialog("Informe a conta");
-        double limite = JOptionPane.showInputDialog("Digite o limite da sua conta");
-        double saldo = JOptionPane.showInputDialog("Informe o saldo da conta");
+        int numConta = Integer.parseInt(JOptionPane.showInputDialog("Informe a conta"));
+        double limite = Double.parseDouble(JOptionPane.showInputDialog("Digite o limite da sua conta"));
+        double saldo = Double.parseDouble(JOptionPane.showInputDialog("Informe o saldo da conta"));
+
+        //Atualizar depois
+        Contacorrente contaCliente = new Contacorrente(nomeC,numConta,saldo,numAgencia,limite);
+        contaCliente.imprimirSaldo_c();
+
+        Contapoupanca contaCliente_p = new Contapoupanca(nomeC,numConta,saldo,numAgencia);
+        contaCliente_p.imprimirSaldo_p();
         
-        
+        PersistenciaArquivos salvar = new PersistenciaArquivos();
+        salvar.salvarConta(contaCliente);
         
     }
     
