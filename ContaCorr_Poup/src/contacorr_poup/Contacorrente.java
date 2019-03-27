@@ -17,7 +17,7 @@ public class Contacorrente {
     private int agencia;
     private double limite = 0;
     
-    public ContaCorrente(String nomeCliente, int numero, double saldo, int agencia, double limite ){
+    public Contacorrente(String nomeCliente, int numero, double saldo, int agencia, double limite ){
         
         this.nomeCliente = nomeCliente;
         this.numero = numero;
@@ -69,6 +69,5 @@ public class Contacorrente {
     public void imprimirSaldo(){
         System.out.println("Prezado, "+ nomeCliente);
         System.out.println("Atualmente seu saldo é: R$ "+ saldo);
-        
     }
 }

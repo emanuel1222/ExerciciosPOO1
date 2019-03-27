@@ -22,9 +22,9 @@ public class Main {
         
         String nomeCliente = JOptionPane.showInputDialog("Informe o seu nome");
         int numAgencia = Integer.parseInt(JOptionPane.showInputDialog("Informe a sua agência"));
-        int numConta = JOptionPane.showInputDialog("Informe a conta");
-        double limite = JOptionPane.showInputDialog("Digite o limite da sua conta");
-        double saldo = JOptionPane.showInputDialog("Informe o saldo da conta");
+        int numConta = Integer.parseInt(JOptionPane.showInputDialog("Informe a conta"));
+        double limite = Double.parseDouble(JOptionPane.showInputDialog("Digite o limite da sua conta"));
+        double saldo = Double.parseDouble(JOptionPane.showInputDialog("Informe o saldo da conta"));
         
         
         
