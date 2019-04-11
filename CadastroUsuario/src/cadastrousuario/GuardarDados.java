@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class GuardarDados {
 
-    public void salvarDados(CadUser dados){
+    public void salvarDados(Usuario dados){
         
         FileWriter arq;
         try{
