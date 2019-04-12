@@ -19,7 +19,7 @@ public class GuardarDados {
         
         FileWriter arq;
         try{
-            arq = new FileWriter("D:\\IFES\\5° periodo\\POO1\\dados.txt", true);
+            arq = new FileWriter("D:\\IFES\\5° periodo\\POO1\\ExerciciosPOO1-JogoPerguntas\\dados.txt", true);
             PrintWriter gravarArq = new PrintWriter(arq);
             gravarArq.append("- " +  dados.getNome_user() + "\r\n" + dados.getSexo() + "\r\n" + dados.getIdade() + "\r\n" + dados.getEmail() + "\r\n" + dados.getLogin() + "\r\n" + dados.getSenha() + "\r\n" + dados.getCpf()+ "\r\n");
             arq.close();

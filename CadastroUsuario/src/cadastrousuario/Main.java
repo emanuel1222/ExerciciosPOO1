@@ -25,23 +25,17 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         int operacao = Integer.parseInt(JOptionPane.showInputDialog("1 - Cadastrar novo usuário\n0 - Sair"));
-
+        Telas msg = new Telas();
+        
         while (operacao != 0){
+      
+            InsercaoDados cadastro = new InsercaoDados();
+            cadastro.dadosUsuario();
             
             operacao = Integer.parseInt(JOptionPane.showInputDialog("1 - Cadastrar novo usuário\n0 - Sair"));
 
-            InsercaoDados cadastro = new InsercaoDados();
-            cadastro.dadosUsuario();
-            Usuario conta;
-            
-            
-            
-            GuardarDados salvar_dados = new GuardarDados();
-            //salvar_dados.salvarDados(conta);
-    
         }
         
-        JOptionPane.showMessageDialog(null,"Finalizando cadastro(s)");
-
+        msg.confirmaCadastro();
     }
 }
