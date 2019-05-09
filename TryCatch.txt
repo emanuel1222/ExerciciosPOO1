@@ -1,0 +1,144 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cadastrousuario;
+
+/**
+ *
+ * @author Emanuel
+ */
+public class Usuario {
+    
+    private String nomeUsuario;
+    private String sexo;
+    private int idade;
+    private String email;
+    private String login;
+    private String senha;
+    private long cpf;
+    
+    public Usuario(String nome, String sexo, String idade, String email, String login, String senha, String cpf) throws Exception{
+        
+        
+        if(nome.equalsIgnoreCase("")){
+            throw new Exception("Nome de usuario não pode ser vazio");            
+        }
+        if(sexo.equalsIgnoreCase("")){
+            throw new Exception("Sexo de usuario não pode ser vazio");            
+        }
+        
+        
+        this.nomeUsuario = nome;        
+        this.sexo = sexo;
+        this.idade = Integer.parseInt(idade);
+        this.email = email;
+        this.login = login;
+        this.senha = senha;
+        this.cpf = Long.parseLong(cpf);
+    }
+
+    public String getNome() {
+        return nomeUsuario;
+    }
+
+    public void setNome(String nome) {
+        this.nomeUsuario = nome;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public long getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(long cpf) {
+        this.cpf = cpf;
+    }
+}
+
+=====================
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cadastrousuario;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author 20171bsi0146
+ */
+public class InsercaoDados {
+    
+    public InsercaoDados(){}
+    
+    public Usuario dadosUsuario(){ /*informa dados usuario*/
+        
+        
+        String nome = JOptionPane.showInputDialog("Informe o seu nome: ");
+        String sexo = JOptionPane.showInputDialog("Digite o sexo (M ou F): ");
+        String idade = JOptionPane.showInputDialog("Informe a sua idade: ");
+        String email = JOptionPane.showInputDialog("Informe o e-mail de cadastro: ");
+        String login = JOptionPane.showInputDialog("Cadastre o nome de usuário para login: ");
+        String senha = JOptionPane.showInputDialog("Cadastre a senha para efetuar o login: ");
+        String cpf = JOptionPane.showInputDialog("Informe o seu CPF: ");          
+        Usuario conta = null;
+        try {
+            conta = new Usuario(nome,sexo, idade, email, login, senha, cpf);
+            //GuardarDados salvar_dados = new GuardarDados();
+            //salvar_dados.salvarDados(conta);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }        
+        return conta;
+
+    }
+    
+    
+}
