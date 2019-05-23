@@ -23,19 +23,69 @@ public class Usuario {
     
     public Usuario(String nome, String sexo, String idade, String email, String login, String senha, String cpf) throws Exception{
         
+        this.setNome(nome);
+ 
+        this.setSexo(sexo);
+        
+        this.setIdade(idade);
+        
+        this.setEmail(email);
+        
+        this.setLogin(login);
+        
+        this.setSenha(senha);
+        
+        this.setCpf(cpf);
+        /*
+        this.nomeUsuario = nome;
+        this.sexo = sexo;
+        this.idade = Integer.parseInt(idade);
+        this.email = email;
+        this.login = login;
+        this.senha = senha;
+        this.cpf = Long.parseLong(cpf);
+        */
+    }
+
+    Usuario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    
+    public String getNome() {
+        return nomeUsuario;
+    }
+
+    public void setNome(String nome) throws Exception {
         if(nome.equalsIgnoreCase("")){
             throw new Exception("\nNome de usuario não pode ser vazio\n");            
         }
-        
-        if(sexo.equalsIgnoreCase("")){
+        this.nomeUsuario = nome;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) throws Exception {
+       
+         if(sexo.equalsIgnoreCase("")){
             throw new Exception("\nSexo de usuario não pode ser vazio\n");            
         }
-        
-        if (!sexo.equals("M")  & !sexo.equals("F") & !sexo.equals("m") & !sexo.equals("f")){
+        if (!sexo.equalsIgnoreCase("M")  && !sexo.equalsIgnoreCase("F")){
             throw new Exception("\nSexo inválido\n"); 
         }
         
-        if(String.valueOf(idade).equalsIgnoreCase("") | String.valueOf(idade).contains("-") | String.valueOf(idade).equals("0")){
+        this.sexo = sexo;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(String idade) throws Exception {
+        if(idade.equalsIgnoreCase("") ||  idade.contains("-") || idade.equals("0")){
             if(String.valueOf(idade).equalsIgnoreCase("")){
                 throw new Exception("\nO campo IDADE está vazio\n");
             }
@@ -44,55 +94,19 @@ public class Usuario {
             }            
         }
         
-        if(!email.contains("@hotmail.com") & !email.contains("@outlook.com") & !email.contains("@gmail.com") & !email.contains("@yahoo.com")){
-            throw new Exception("\ne-maill inválido\n");     
-        }
-        
-        if(senha.equalsIgnoreCase(login)){
-            throw new Exception("\nA senha deve ser diferente do login\n");        
-        }
-        
-        //if(String.valueOf(cpf).length()){
-        //}
-        
-        this.nomeUsuario = nome;
-        this.sexo = sexo;
         this.idade = Integer.parseInt(idade);
-        this.email = email;
-        this.login = login;
-        this.senha = senha;
-        this.cpf = Long.parseLong(cpf);
-    }
-
-    public String getNome() {
-        return nomeUsuario;
-    }
-
-    public void setNome(String nome) {
-        this.nomeUsuario = nome;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws Exception{ 
+            
+        if(!email.contains("@") || !email.contains(".")){
+            throw new Exception("\ne-maill inválido\n");     
+        }    
+            
         this.email = email;
     }
 
@@ -100,7 +114,11 @@ public class Usuario {
         return login;
     }
 
-    public void setLogin(String login) {
+    public void setLogin(String login) throws Exception {
+        
+    if(login.matches("[0-9]") && login.matches("[a-Z]") ){
+        throw new Exception("\nO login não deve conter apenas números\n");    
+    }
         this.login = login;
     }
 
@@ -108,7 +126,16 @@ public class Usuario {
         return senha;
     }
 
-    public void setSenha(String senha) {
+    public void setSenha(String senha) throws Exception {
+        
+        if(senha.equalsIgnoreCase(login)){
+            throw new Exception("\nA senha deve ser diferente do login\n");        
+        }
+        
+        if(senha.length() < 6){
+            throw new Exception("\nA senha deve conter no mínimo 5 digitos\n");
+        }
+        
         this.senha = senha;
     }
 
@@ -116,11 +143,17 @@ public class Usuario {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
-        this.cpf = cpf;
-    }
-
-    private int length() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setCpf(String cpf) throws Exception {
+        
+        if(cpf.length() != 11){  
+            throw new Exception("\nO CPF deve conter 11 digitos\n");
+        }
+        /*
+        if(cpf.length() != 11){  
+            throw new NumberFormatException("\nO CPF deve conter 11 digitos\n");
+        }
+        */
+        
+        this.cpf = Long.parseLong(cpf);
     }
 }

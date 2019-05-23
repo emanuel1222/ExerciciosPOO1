@@ -27,8 +27,18 @@ public class InsercaoDados {
         Usuario conta = null;
         try{
             conta = new Usuario(nome,sexo, idade, email, login, senha, cpf);
+            GuardarDados salvar_dados = new GuardarDados();
+            salvar_dados.salvarDados(conta); 
         } catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Digite 1 para preencher os dados cadastrais novamente ou pressione qualquer tecla para sair");
+            int operacao = Integer.parseInt(JOptionPane.showInputDialog("1 - PREENCHER CADASTRO NOVAMENTE\n0 - PRESSIONE 0 ou QUALQUER TECLA PARA PARA SAIR"));
+            if(operacao == 1){
+                conta = dadosUsuario();
+            }
+            else{
+                return null;
+            }
         }
         return conta;
     }   

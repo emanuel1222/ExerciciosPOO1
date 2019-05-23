@@ -27,7 +27,7 @@ public class Main {
         int operacao = Integer.parseInt(JOptionPane.showInputDialog("1 - Cadastrar novo usuário\n0 - Sair"));
         Telas msg = new Telas();
         
-        while (operacao != 0 | operacao == 1){     
+        while (operacao != 0){     
             InsercaoDados cadastro = new InsercaoDados();
             Usuario nova_conta = cadastro.dadosUsuario();
             GuardarDados salvar_dados = new GuardarDados();
