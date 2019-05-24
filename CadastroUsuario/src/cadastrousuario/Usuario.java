@@ -70,10 +70,9 @@ public class Usuario {
 
     public void setSexo(String sexo) throws Exception {
        
-         if(sexo.equalsIgnoreCase("")){
+        if(sexo.equalsIgnoreCase("")){
             throw new Exception("\nSexo de usuario não pode ser vazio\n");            
-        }
-        if (!sexo.equalsIgnoreCase("M")  && !sexo.equalsIgnoreCase("F")){
+        }else if (!sexo.equalsIgnoreCase("M")  && !sexo.equalsIgnoreCase("F")){
             throw new Exception("\nSexo inválido\n"); 
         }
         
@@ -87,7 +86,7 @@ public class Usuario {
     public void setIdade(String idade) throws Exception {
         if(idade.equalsIgnoreCase("") ||  idade.contains("-") || idade.equals("0")){
             if(String.valueOf(idade).equalsIgnoreCase("")){
-                throw new Exception("\nO campo IDADE está vazio\n");
+                throw new Exception("\nDeve ser informado um valor válido para idade\n");
             }
             else{
                 throw new Exception("\nA idade deve ser maior que 0\n"); 
@@ -105,7 +104,9 @@ public class Usuario {
             
         if(!email.contains("@") || !email.contains(".")){
             throw new Exception("\ne-maill inválido\n");     
-        }    
+        } else if (email.length() != 12){
+            throw new Exception("\nQuantidade de caracteres inválida para e-mail\n");
+        }   
             
         this.email = email;
     }
@@ -130,9 +131,7 @@ public class Usuario {
         
         if(senha.equalsIgnoreCase(login)){
             throw new Exception("\nA senha deve ser diferente do login\n");        
-        }
-        
-        if(senha.length() < 6){
+        } else if(senha.length() < 6){
             throw new Exception("\nA senha deve conter no mínimo 5 digitos\n");
         }
         
@@ -148,11 +147,6 @@ public class Usuario {
         if(cpf.length() != 11){  
             throw new Exception("\nO CPF deve conter 11 digitos\n");
         }
-        /*
-        if(cpf.length() != 11){  
-            throw new NumberFormatException("\nO CPF deve conter 11 digitos\n");
-        }
-        */
         
         this.cpf = Long.parseLong(cpf);
     }

@@ -38,28 +38,14 @@ public class UsuarioTest {
     @After
     public void tearDown() {
     }
-
-    /**
-     * Test of getNome method, of class Usuario.
-     */
-    @Test
-    public void testGetNome() {
-        System.out.println("getNome");
-        Usuario instance = null;
-        String expResult = "";
-        String result = instance.getNome();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+    
     /**
      * Test of setNome method, of class Usuario.
      */
     @Test
     public void testSetNome()  {
         System.out.println("setNome");
-        String nome = "";
+        String nome = " ";
         Usuario instance = new Usuario();
         try {
             instance.setNome(nome);
@@ -72,44 +58,20 @@ public class UsuarioTest {
     }
 
     /**
-     * Test of getSexo method, of class Usuario.
-     */
-    @Test
-    public void testGetSexo() {
-        System.out.println("getSexo");
-        Usuario instance = null;
-        String expResult = "";
-        String result = instance.getSexo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of setSexo method, of class Usuario.
      */
     @Test
     public void testSetSexo() throws Exception {
         System.out.println("setSexo");
-        String sexo = "";
-        Usuario instance = null;
-        instance.setSexo(sexo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getIdade method, of class Usuario.
-     */
-    @Test
-    public void testGetIdade() {
-        System.out.println("getIdade");
-        Usuario instance = null;
-        int expResult = 0;
-        int result = instance.getIdade();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String sexo = "masc";
+        Usuario instance = new Usuario();
+        
+        try {
+            instance.setNome(sexo);
+            fail("O sexo informado deve ser diferente de vazio ou informado como M ou F");
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -118,25 +80,15 @@ public class UsuarioTest {
     @Test
     public void testSetIdade() throws Exception {
         System.out.println("setIdade");
-        String idade = "";
-        Usuario instance = null;
-        instance.setIdade(idade);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getEmail method, of class Usuario.
-     */
-    @Test
-    public void testGetEmail() {
-        System.out.println("getEmail");
-        Usuario instance = null;
-        String expResult = "";
-        String result = instance.getEmail();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String idade = "-10";
+        Usuario instance = new Usuario();
+        
+        try {
+            instance.setNome(idade);
+            fail("A idade deve ser maior que 0");
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -145,53 +97,33 @@ public class UsuarioTest {
     @Test
     public void testSetEmail() throws Exception {
         System.out.println("setEmail");
-        String email = "";
-        Usuario instance = null;
-        instance.setEmail(email);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getLogin method, of class Usuario.
-     */
-    @Test
-    public void testGetLogin() {
-        System.out.println("getLogin");
-        Usuario instance = null;
-        String expResult = "";
-        String result = instance.getLogin();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String email = "emanuel@hotmail";
+        Usuario instance = new Usuario();
+        try {
+            instance.setNome(email);
+            fail("O e-mail informado está no formato inválido ou com um número de caracteres menor do que 12");
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
      * Test of setLogin method, of class Usuario.
      */
+    /*
     @Test
     public void testSetLogin() throws Exception {
         System.out.println("setLogin");
         String login = "";
-        Usuario instance = null;
-        instance.setLogin(login);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Usuario instance = new Usuario();
+        try {
+            instance.setNome(login);
+            fail("O e-mail informado está no formato inválido ou com um número de caracteres menor do que 12");
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-
-    /**
-     * Test of getSenha method, of class Usuario.
-     */
-    @Test
-    public void testGetSenha() {
-        System.out.println("getSenha");
-        Usuario instance = null;
-        String expResult = "";
-        String result = instance.getSenha();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    */
 
     /**
      * Test of setSenha method, of class Usuario.
@@ -199,25 +131,14 @@ public class UsuarioTest {
     @Test
     public void testSetSenha() throws Exception {
         System.out.println("setSenha");
-        String senha = "";
-        Usuario instance = null;
-        instance.setSenha(senha);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getCpf method, of class Usuario.
-     */
-    @Test
-    public void testGetCpf() {
-        System.out.println("getCpf");
-        Usuario instance = null;
-        long expResult = 0L;
-        long result = instance.getCpf();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String senha = "emc1";
+        Usuario instance = new Usuario();
+        try {
+            instance.setNome(senha);
+            fail("A senha deve ser diferente do nome e a senha deve ter no minimo 5 caracteres");
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -226,11 +147,13 @@ public class UsuarioTest {
     @Test
     public void testSetCpf() throws Exception {
         System.out.println("setCpf");
-        String cpf = "";
-        Usuario instance = null;
-        instance.setCpf(cpf);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String cpf = "161068869";
+        Usuario instance = new Usuario();
+        try {
+            instance.setNome(cpf);
+            fail("O CPF deve ter 11 digitos");
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
 }
